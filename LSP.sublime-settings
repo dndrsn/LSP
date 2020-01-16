@@ -23,6 +23,9 @@
   // under the cursor in status bar if available.
   "show_diagnostics_in_view_status": true,
 
+  // Show the diagnostics highlights and gutter marks in document view
+  "show_diagnostics_in_view": true,
+
   // Show the diagnostics with level less than or equal to
   // the given value.
   // error: 1
@@ -32,8 +35,7 @@
   "show_diagnostics_severity_level": 2,
 
   // Highlighting style of code diagnostics.
-  // Valid values are "underline", "box" or ""
-  // When set to the empty string (""), no document dignostic highlighting is displayed.
+  // Valid values are "underline" or "box"
   "diagnostics_highlight_style": "underline",
 
   // Highlighting style of "highlights": accentuating nearby text entities that

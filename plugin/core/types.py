@@ -8,6 +8,7 @@ class Settings(object):
         self.auto_show_diagnostics_panel = 'always'
         self.auto_show_diagnostics_panel_level = 2
         self.show_diagnostics_count_in_view_status = False
+        self.show_diagnostics_in_view = True
         self.show_diagnostics_in_view_status = True
         self.show_diagnostics_severity_level = 2
         self.only_show_lsp_completions = False
