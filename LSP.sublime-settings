@@ -32,7 +32,8 @@
   "show_diagnostics_severity_level": 2,
 
   // Highlighting style of code diagnostics.
-  // Valid values are "underline" or "box"
+  // Valid values are "underline", "box" or ""
+  // When set to the empty string (""), no document dignostic highlighting is displayed.
   "diagnostics_highlight_style": "underline",
 
   // Highlighting style of "highlights": accentuating nearby text entities that

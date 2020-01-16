@@ -258,9 +258,10 @@ class DiagnosticViewRegions(DiagnosticsUpdateWalk):
             if severity in self._regions:
                 regions = self._regions[severity]
                 scope_name = diagnostic_severity_scopes[severity]
-                self._view.add_regions(
-                    region_name, regions, scope_name, settings.diagnostics_gutter_marker,
-                    UNDERLINE_FLAGS if settings.diagnostics_highlight_style == "underline" else BOX_FLAGS)
+                if(settings.diagnostics_highlight_style):
+                    self._view.add_regions(
+                        region_name, regions, scope_name, settings.diagnostics_gutter_marker,
+                        UNDERLINE_FLAGS if settings.diagnostics_highlight_style == "underline" else BOX_FLAGS)
             else:
                 self._view.erase_regions(region_name)
 
