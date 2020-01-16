@@ -253,16 +253,17 @@ class DiagnosticViewRegions(DiagnosticsUpdateWalk):
         self._relevant_file = False
 
     def end(self) -> None:
-        for severity in range(DiagnosticSeverity.Error, DiagnosticSeverity.Hint):
-            region_name = "lsp_" + format_severity(severity)
-            if severity in self._regions and settings.show_diagnostics_in_view:
-                regions = self._regions[severity]
-                scope_name = diagnostic_severity_scopes[severity]
-                self._view.add_regions(
-                    region_name, regions, scope_name, settings.diagnostics_gutter_marker,
-                    UNDERLINE_FLAGS if settings.diagnostics_highlight_style == "underline" else BOX_FLAGS)
-            else:
-                self._view.erase_regions(region_name)
+        if settings.show_diagnostics_in_view:
+            for severity in range(DiagnosticSeverity.Error, DiagnosticSeverity.Hint):
+                region_name = "lsp_" + format_severity(severity)
+                if severity in self._regions:
+                    regions = self._regions[severity]
+                    scope_name = diagnostic_severity_scopes[severity]
+                    self._view.add_regions(
+                        region_name, regions, scope_name, settings.diagnostics_gutter_marker,
+                        UNDERLINE_FLAGS if settings.diagnostics_highlight_style == "underline" else BOX_FLAGS)
+                else:
+                    self._view.erase_regions(region_name)
 
 
 class HasRelevantDiagnostics(DiagnosticsUpdateWalk):
