@@ -247,7 +247,7 @@ class DiagnosticViewRegions(DiagnosticsUpdateWalk):
         self._relevant_file = False
 
     def end(self) -> None:
-        for severity in range(DiagnosticSeverity.Error, DiagnosticSeverity.Hint):
+        for severity in range(DiagnosticSeverity.Error, settings.show_diagnostics_severity_level):
             region_name = "lsp_" + format_severity(severity)
             if severity in self._regions:
                 regions = self._regions[severity]
